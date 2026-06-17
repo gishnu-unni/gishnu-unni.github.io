@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gishnu N. Unni — Senior PM & BA Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+  :root {
+    --navy: #0D1B2A;
+    --sky: #1B6CA8;
+    --sky-light: #EBF4FF;
+    --gold: #C9963A;
+    --gold-light: #FDF6E9;
+    --slate: #4A5568;
+    --smoke: #F7F9FC;
+    --white: #FFFFFF;
+    --border: #E2E8F0;
+    --text: #2D3748;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--smoke);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+    color: white;
+    padding: 64px 40px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(27,108,168,0.35) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 20%;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(201,150,58,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: white;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    max-width: 580px;
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.9);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .hero-contact a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .hero-contact a:hover { color: var(--gold); }
+
+  /* METRICS STRIP */
+  .metrics {
+    background: var(--gold);
+    padding: 20px 40px;
+  }
+
+  .metrics-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+    text-align: center;
+  }
+
+  .metric-item {}
+
+  .metric-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .metric-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(13,27,42,0.75);
+    margin-top: 4px;
+  }
+
+  /* MAIN LAYOUT */
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 40px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 40px;
+    align-items: start;
+  }
+
+  /* SECTIONS */
+  .section { margin-bottom: 44px; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--sky-light);
+  }
+
+  /* PROJECTS */
+  .project-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s;
+  }
+
+  .project-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .project-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .project-client {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sky);
+    background: var(--sky-light);
+    padding: 3px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  .project-desc {
+    font-size: 13.5px;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .project-outcomes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .outcome-pill {
+    background: var(--gold-light);
+    border: 1px solid rgba(201,150,58,0.3);
+    color: #7A5A1A;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* EXPERIENCE */
+  .exp-item {
+    padding: 0 0 24px 20px;
+    border-left: 2px solid var(--border);
+    position: relative;
+    margin-bottom: 4px;
+  }
+
+  .exp-item::before {
+    content: '';
+    width: 10px; height: 10px;
+    background: var(--sky);
+    border-radius: 50%;
+    position: absolute;
+    left: -6px; top: 5px;
+  }
+
+  .exp-role {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--navy);
+  }
+
+  .exp-company {
+    font-size: 13px;
+    color: var(--sky);
+    font-weight: 500;
+  }
+
+  .exp-period {
+    font-size: 12px;
+    color: var(--slate);
+    margin-bottom: 8px;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .exp-bullets li {
+    font-size: 13px;
+    color: var(--slate);
+    padding: 2px 0 2px 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .exp-bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* SIDEBAR */
+  .sidebar {}
+
+  .sidebar-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 14px;
+  }
+
+  /* SKILLS */
+  .skill-group { margin-bottom: 14px; }
+
+  .skill-group-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .skill-tag {
+    background: var(--sky-light);
+    color: var(--sky);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  /* CERTIFICATIONS */
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .cert-badge {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--sky) 0%, var(--navy) 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .cert-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  .cert-issuer {
+    font-size: 11px;
+    color: var(--slate);
+  }
+
+  /* AWARDS */
+  .award-item {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .award-item:last-child { border-bottom: none; }
+
+  .award-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .award-org {
+    font-size: 11px;
+    color: var(--slate);
+  }
+
+  /* CLIENTS */
+  .client-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .client-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--slate);
+    background: var(--smoke);
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 20px 40px;
+    font-size: 12px;
+  }
+
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 720px) {
+    .main { grid-template-columns: 1fr; padding: 32px 20px; }
+    .hero { padding: 44px 20px 40px; }
+    .metrics { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Professional Portfolio</div>
+    <h1>Gishnu N. Unni</h1>
+    <p class="hero-subtitle">Senior Project Manager · Product Owner · Business Analyst<br>9+ Years · Aviation IT · Global Delivery · Agile/SAFe · CSPO Certified</p>
+    <div class="hero-tags">
+      <span class="tag">✈️ Aviation Domain</span>
+      <span class="tag">📋 Agile / SAFe</span>
+      <span class="tag">🎯 CSPO + CSM</span>
+      <span class="tag">🌏 Open to UAE & Global</span>
+      <span class="tag">📍 Kochi, India</span>
+    </div>
+    <div class="hero-contact">
+      <a href="mailto:gishnuatwork@gmail.com">✉ gishnuatwork@gmail.com</a>
+      <a href="tel:+919495813442">📞 +91 9495813442</a>
+      <a href="https://linkedin.com/in/gishnu-unni-23735850" target="_blank">🔗 LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<div class="metrics">
+  <div class="metrics-inner">
+    <div class="metric-item">
+      <div class="metric-num">9+</div>
+      <div class="metric-label">Years Experience</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-num">8+</div>
+      <div class="metric-label">Global Go-lives</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-num">36</div>
+      <div class="metric-label">Team Members Led</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-num">~30%</div>
+      <div class="metric-label">Productivity Gain</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-num">~60%</div>
+      <div class="metric-label">Defect Reduction</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-num">100%</div>
+      <div class="metric-label">Sprint Adherence</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT COLUMN -->
+  <div class="left">
+
+    <!-- KEY PROJECTS -->
+    <div class="section">
+      <div class="section-label">Key Projects & Deliveries</div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">iCargo Platform — Multi-Airline Global Rollout</div>
+          <div class="project-client">IBS Software</div>
+        </div>
+        <p class="project-desc">Led delivery of iCargo — a comprehensive cargo management platform covering export, import, warehousing, and cargo hold operations across desktop and HHT devices. Managed phased cutover from legacy systems with zero cargo operations downtime. Clients included Cargolux, SriLankan Cargo, Delta Cargo, and Air France KLM.</p>
+        <div class="project-outcomes">
+          <span class="outcome-pill">~60% defect reduction</span>
+          <span class="outcome-pill">Zero downtime cutover</span>
+          <span class="outcome-pill">JIRA · Confluence</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">ANA API Integration — Crisis Recovery</div>
+          <div class="project-client">ANA All Nippon Airways</div>
+        </div>
+        <p class="project-desc">Led critical API development for ANA's core system migration. When documentation context drift caused a crisis two weeks before go-live, directly engaged client PM (Yoshimura-san), redefined priorities, and reworked delivery to achieve a successful partial go-live. Client formally recognised the team's commitment under pressure.</p>
+        <div class="project-outcomes">
+          <span class="outcome-pill">Partial go-live achieved</span>
+          <span class="outcome-pill">Client commendation</span>
+          <span class="outcome-pill">Crisis management</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">PSS Digital Transformation — Multi-carrier</div>
+          <div class="project-client">IBS Software</div>
+        </div>
+        <p class="project-desc">Led concurrent Agile delivery of Passenger Services System upgrades across Etihad, Qantas, StarLux, and Asiana. Managed 3 parallel squads, PI planning, and go-live execution across APAC and Middle East time zones. Achieved 30% productivity uplift and 100% sprint adherence across the portfolio.</p>
+        <div class="project-outcomes">
+          <span class="outcome-pill">~30% productivity uplift</span>
+          <span class="outcome-pill">100% sprint adherence</span>
+          <span class="outcome-pill">4 airline clients</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">Gatwick Airport Digital Product</div>
+          <div class="project-client">Ignitho Technologies</div>
+        </div>
+        <p class="project-desc">Acted as Product Owner and BA for a customer-facing digital platform for Gatwick Airport. Led wireframing and clickable prototype creation in Adobe XD, wrote user stories and acceptance criteria, facilitated grooming sessions, and coordinated UAT sign-off with the client team in the UK.</p>
+        <div class="project-outcomes">
+          <span class="outcome-pill">Adobe XD wireframes</span>
+          <span class="outcome-pill">UK client delivery</span>
+          <span class="outcome-pill">Full PO lifecycle</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <div class="section-label">Work Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-role">Project Lead / Lead Product Analyst</div>
+        <div class="exp-company">IBS Software</div>
+        <div class="exp-period">November 2021 – April 2026 · Kochi, India</div>
+        <ul class="exp-bullets">
+          <li>Led 3 concurrent Agile squads (36 members) across aviation clients globally</li>
+          <li>Owned product backlog, PI planning, sprint ceremonies, and UAT in JIRA & Azure DevOps</li>
+          <li>Delivered 8+ global go-lives for ANA, Etihad, Qantas, Lufthansa, Malaysia Airlines & more</li>
+          <li>Achieved ~30% productivity uplift, ~60% defect reduction, ~100% sprint adherence</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-role">Scrum Master / Product Owner</div>
+        <div class="exp-company">Ignitho Technologies</div>
+        <div class="exp-period">December 2020 – November 2021 · Kochi, India</div>
+        <ul class="exp-bullets">
+          <li>Owned requirements lifecycle — wireframes (Adobe XD), user stories, acceptance criteria</li>
+          <li>Delivered digital products for Gatwick Airport, Westwood Pharmacy, Cloud5</li>
+          <li>Facilitated all Agile ceremonies and managed product backlogs in JIRA</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-role">Associate Analyst, Risk Management Services</div>
+        <div class="exp-company">Ernst & Young</div>
+        <div class="exp-period">May 2018 – September 2020 · Kochi, India</div>
+        <ul class="exp-bullets">
+          <li>Client-facing consulting across financial services, technology, and industrial sectors</li>
+          <li>Requirements elicitation, risk assessment, and strategic recommendations to senior leaders</li>
+          <li>Recognised with 3 performance awards: EY Extra Miler (4x), Innovation Bronze, Turbo Idea Leader</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- CERTIFICATIONS -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Certifications</div>
+
+      <div class="cert-item">
+        <div class="cert-badge">🏅</div>
+        <div>
+          <div class="cert-name">Certified Scrum Product Owner (CSPO)</div>
+          <div class="cert-issuer">Scrum Alliance · 2025</div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-badge">🏅</div>
+        <div>
+          <div class="cert-name">Certified Scrum Master (CSM)</div>
+          <div class="cert-issuer">Scrum Alliance · 2023</div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-badge">🎓</div>
+        <div>
+          <div class="cert-name">Executive PM Programme</div>
+          <div class="cert-issuer">IIM Kozhikode · 2020</div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-badge">🎓</div>
+        <div>
+          <div class="cert-name">MBA — Finance & Marketing</div>
+          <div class="cert-issuer">Amity University · 2018</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Skills & Tools</div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">BA & Product</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Requirements Analysis</span>
+          <span class="skill-tag">User Stories</span>
+          <span class="skill-tag">Acceptance Criteria</span>
+          <span class="skill-tag">Process Flows</span>
+          <span class="skill-tag">UAT</span>
+          <span class="skill-tag">Backlog Management</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Agile & Delivery</div>
+        <div class="skill-tags">
+          <span class="skill-tag">SAFe / ART</span>
+          <span class="skill-tag">PI Planning</span>
+          <span class="skill-tag">Scrum</span>
+          <span class="skill-tag">Kanban</span>
+          <span class="skill-tag">WSJF</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">JIRA</span>
+          <span class="skill-tag">Azure DevOps</span>
+          <span class="skill-tag">Confluence</span>
+          <span class="skill-tag">Adobe XD</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">MS Project</span>
+          <span class="skill-tag">Copilot</span>
+          <span class="skill-tag">Claude AI</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Domain</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Airline PSS</span>
+          <span class="skill-tag">Cargo Systems</span>
+          <span class="skill-tag">Loyalty Platforms</span>
+          <span class="skill-tag">Revenue Mgmt</span>
+          <span class="skill-tag">Digital Channels</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AIRLINE CLIENTS -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Aviation Clients Served</div>
+      <div class="client-grid">
+        <span class="client-name">ANA Japan</span>
+        <span class="client-name">Etihad Airways</span>
+        <span class="client-name">Qantas</span>
+        <span class="client-name">Lufthansa</span>
+        <span class="client-name">Air France KLM</span>
+        <span class="client-name">Delta Cargo</span>
+        <span class="client-name">Malaysia Airlines</span>
+        <span class="client-name">Air New Zealand</span>
+        <span class="client-name">Asiana Airlines</span>
+        <span class="client-name">Dnata</span>
+        <span class="client-name">SriLankan Cargo</span>
+        <span class="client-name">American Airlines</span>
+      </div>
+    </div>
+
+    <!-- AWARDS -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Awards & Recognition</div>
+      <div class="award-item">
+        <div class="award-name">EY Extra Miler Award × 4</div>
+        <div class="award-org">Ernst & Young · 2018–2020</div>
+      </div>
+      <div class="award-item">
+        <div class="award-name">Innovation Bronze Badge</div>
+        <div class="award-org">EY Design Thinking · 2020</div>
+      </div>
+      <div class="award-item">
+        <div class="award-name">Turbo Idea Leader</div>
+        <div class="award-org">EY Service Excellence · 2020</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>Gishnu N. Unni · <a href="mailto:gishnuatwork@gmail.com">gishnuatwork@gmail.com</a> · +91 9495813442 · <a href="https://linkedin.com/in/gishnu-unni-23735850">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>
